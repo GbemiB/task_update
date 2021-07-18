@@ -1,4 +1,4 @@
-package com.crud.api.CRUDApi.Model;
+package com.crud.api.CRUDApi.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

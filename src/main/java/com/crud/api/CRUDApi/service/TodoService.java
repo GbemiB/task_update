@@ -1,8 +1,6 @@
-package com.crud.api.CRUDApi.Service;
-import com.crud.api.CRUDApi.Model.Todo;
+package com.crud.api.CRUDApi.service;
+import com.crud.api.CRUDApi.model.Todo;
 import java.util.List;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Service;
 
 
 public interface TodoService {

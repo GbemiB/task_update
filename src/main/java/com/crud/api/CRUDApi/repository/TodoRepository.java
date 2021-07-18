@@ -1,6 +1,6 @@
-package com.crud.api.CRUDApi.Repository;
+package com.crud.api.CRUDApi.repository;
 
-import com.crud.api.CRUDApi.Model.Todo;
+import com.crud.api.CRUDApi.model.Todo;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

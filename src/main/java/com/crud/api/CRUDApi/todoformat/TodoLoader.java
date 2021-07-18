@@ -1,7 +1,7 @@
-package com.crud.api.CRUDApi.bootstrap;
-import com.crud.api.CRUDApi.Model.Todo;
-import com.crud.api.CRUDApi.Model.TodoStatus;
-import com.crud.api.CRUDApi.Repository.TodoRepository;
+package com.crud.api.CRUDApi.todoformat;
+import com.crud.api.CRUDApi.model.Todo;
+import com.crud.api.CRUDApi.model.TodoStatus;
+import com.crud.api.CRUDApi.repository.TodoRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

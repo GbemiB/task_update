@@ -1,7 +1,6 @@
-package com.crud.api.CRUDApi.Service;
-import com.crud.api.CRUDApi.Model.Todo;
-import com.crud.api.CRUDApi.Repository.TodoRepository;
-import com.crud.api.CRUDApi.Service.TodoService;
+package com.crud.api.CRUDApi.service;
+import com.crud.api.CRUDApi.model.Todo;
+import com.crud.api.CRUDApi.repository.TodoRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;

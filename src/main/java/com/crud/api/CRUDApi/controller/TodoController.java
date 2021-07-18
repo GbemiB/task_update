@@ -1,6 +1,6 @@
-package com.crud.api.CRUDApi.Controller;
-import com.crud.api.CRUDApi.Service.TodoService;
-import com.crud.api.CRUDApi.Model.Todo;
+package com.crud.api.CRUDApi.controller;
+import com.crud.api.CRUDApi.service.TodoService;
+import com.crud.api.CRUDApi.model.Todo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
