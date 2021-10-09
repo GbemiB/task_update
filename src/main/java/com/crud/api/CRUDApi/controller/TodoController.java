@@ -1,7 +1,6 @@
 package com.crud.api.CRUDApi.controller;
-import com.crud.api.CRUDApi.service.TodoService;
-import com.crud.api.CRUDApi.model.Todo;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.crud.api.CRUDApi.service.TaskService;
+import com.crud.api.CRUDApi.model.Task;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,44 +8,48 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/todo")
+@RequestMapping("/task")
 public class TodoController {
-    @Autowired
-    TodoService todoService;
 
-    public TodoController(TodoService todoService) {
+    TaskService todoService;
+
+    public TodoController(TaskService todoService) {
         this.todoService = todoService;
     }
 
-    //The function receives a GET request, processes it and gives back a list of Todo as a response.
     @GetMapping
-    public ResponseEntity<List<Todo>> getAllTodos() {
-        List<Todo> todos = todoService.getTodos();
-        return new ResponseEntity<>(todos, HttpStatus.OK);
+    public ResponseEntity<List<Task>> getAllTasks() {
+        List<Task> tasksTotal = todoService.getTask();
+        return new ResponseEntity<>(tasksTotal, HttpStatus.OK);
     }
-    //The function receives a GET request, processes it, and gives back a list of Todo as a response.
-    @GetMapping({"/{todoId}"})
-    public ResponseEntity<Todo> getTodo(@PathVariable Long todoId) {
-        return new ResponseEntity<>(todoService.getTodoById(todoId), HttpStatus.OK);
+
+
+    @GetMapping({"/{taskId}"})
+    public ResponseEntity<Task> getTask(@PathVariable Long taskId) {
+        return new ResponseEntity<>(todoService.getTaskById(taskId), HttpStatus.OK);
     }
-    //The function receives a POST request, processes it, creates a new Todo and saves it to the database, and returns a resource link to the created todo.    @PostMapping
+
+
     @PostMapping("")
-    public ResponseEntity<Todo> saveTodo(@RequestBody Todo todo) {
-        Todo todo1 = todoService.insert(todo);
+    public ResponseEntity<Task> saveTask(@RequestBody Task todo) {
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("todo", "/api/v1/todo/" + todo1.getId().toString());
-        return new ResponseEntity<>(todo1, httpHeaders, HttpStatus.CREATED);
+        Task rawTask = todoService.insertTask(todo);
+        httpHeaders.add("task",
+                "/api/v1/task/" + rawTask.getId());
+        return new ResponseEntity<>(rawTask, httpHeaders, HttpStatus.CREATED);
     }
-    //The function receives a PUT request, updates the Todo with the specified Id and returns the updated Todo
-    @PutMapping({"/{todoId}"})
-    public ResponseEntity<Todo> updateTodo(@PathVariable("todoId") Long todoId, @RequestBody Todo todo) {
-        todoService.updateTodo(todoId, todo);
-        return new ResponseEntity<>(todoService.getTodoById(todoId), HttpStatus.OK);
+
+
+    @PutMapping({"/{taskId}"})
+    public ResponseEntity<Task> updateTask(@PathVariable("taskId") Long taskId, @RequestBody Task task) {
+        todoService.updateTask(taskId, task);
+        return new ResponseEntity<>(todoService.getTaskById(taskId), HttpStatus.OK);
     }
-    //The function receives a DELETE request, deletes the Todo with the specified Id.
-    @DeleteMapping({"/{todoId}"})
-    public ResponseEntity<Todo> deleteTodo(@PathVariable("todoId") Long todoId) {
-        todoService.deleteTodo(todoId);
+
+
+    @DeleteMapping({"/{taskId}"})
+    public ResponseEntity<Task> deleteTask(@PathVariable("taskId") Long taskId) {
+        todoService.deleteTask(taskId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

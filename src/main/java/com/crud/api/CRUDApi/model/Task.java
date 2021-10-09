@@ -16,17 +16,27 @@ import java.sql.Timestamp;
     @NoArgsConstructor
     @AllArgsConstructor
     @Builder
-    public class Todo {
+    public class Task {
         @Id
         @GeneratedValue
         @Column(updatable = false, nullable = false)
         Long id;
         @Column
-        String title;
+        String taskTitle;
         @Column
-        String description;
+        String taskDescription;
         @Column
-        TodoStatus todoStatus;
+        String taskBeginDate;
+        @Column
+        String taskEndDate;
+        @Column
+        String taskSupervisor;
+        @Column
+        String taskAllowance;
+        @Column
+        String taskBonus;
+        @Column
+        TaskStatus taskStatus;
         @CreationTimestamp
         @Column(updatable = false)
         Timestamp dateCreated;

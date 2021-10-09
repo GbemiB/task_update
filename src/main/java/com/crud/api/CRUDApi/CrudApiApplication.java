@@ -1,7 +1,7 @@
 package com.crud.api.CRUDApi;
 
-import com.crud.api.CRUDApi.repository.TodoRepository;
-import com.crud.api.CRUDApi.service.TodoServiceImp;
+import com.crud.api.CRUDApi.repository.TaskRepository;
+import com.crud.api.CRUDApi.service.TaskServiceImp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -12,10 +12,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CrudApiApplication implements CommandLineRunner {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	TodoServiceImp todoServiceImp;
-	TodoRepository todoRepository;
+	TaskServiceImp todoServiceImp;
+	TaskRepository todoRepository;
 
-	public CrudApiApplication(TodoServiceImp todoServiceImp, TodoRepository todoRepository) {
+	public CrudApiApplication(TaskServiceImp todoServiceImp, TaskRepository todoRepository) {
 		this.todoServiceImp = todoServiceImp;
 		this.todoRepository = todoRepository;
 	}
